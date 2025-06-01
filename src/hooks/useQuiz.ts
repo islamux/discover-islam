@@ -63,7 +63,7 @@ export const useQuiz = () => {
    */
   const resetQuiz = useCallback(() => {
     // Future enhancement: Shuffle questions by creating a shuffled copy of islamicQuizData
-    // setQuestions(shuffledIslamicQuizData); 
+    // setQuestions(shuffledIslamicQuizData);
     setCurrentQuestionIndex(0);
     setSelectedAnswers({});
     setScore(0);
