@@ -3,13 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Next.js default fonts, ensure they are loaded in layout.tsx if not globally available */
+  --font-sans: 'GeistSans', system-ui, sans-serif; 
+  --font-mono: 'GeistMono', monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +18,11 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans); /* Use the defined sans-serif font */
+  line-height: 1.6; /* Improve readability */
+}
+
+/* Basic responsive typography for headings if desired, or handle via Tailwind classes */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--foreground); /* Ensure headings also use the theme color */
 }
