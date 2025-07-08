@@ -1,7 +1,9 @@
 'use client';
 
 import { useState, useCallback, useMemo } from 'react';
-import type { QuizQuestion, QuizOption, QuizResult } from '../lib/types'; // Import QuizResult
+// QuizOption is used as part of QuizQuestion type
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import type { QuizQuestion, QuizOption, QuizResult } from '../lib/types';
 import { islamicQuizData } from '../data/quizData';
 
 /**
@@ -10,7 +12,7 @@ import { islamicQuizData } from '../data/quizData';
  * @returns An object containing quiz state and functions to interact with the quiz.
  */
 export const useQuiz = () => {
-  const [questions, setQuestions] = useState<QuizQuestion[]>(islamicQuizData);
+  const questions: QuizQuestion[] = useMemo(() => islamicQuizData, []);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<string, string>>({}); // questionId: optionId
   const [score, setScore] = useState<number>(0);
@@ -19,7 +21,7 @@ export const useQuiz = () => {
   /**
    * The current question object based on `currentQuestionIndex`.
    */
-  const currentQuestion = useMemo(() => questions[currentQuestionIndex], [questions, currentQuestionIndex]);
+  const currentQuestion: QuizQuestion = useMemo(() => questions[currentQuestionIndex], [questions, currentQuestionIndex]);
 
   /**
    * The total number of questions in the quiz.

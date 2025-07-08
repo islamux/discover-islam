@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useQuiz } from '@/hooks/useQuiz';
 import QuizQuestionDisplay from '@/components/QuizQuestionDisplay';
 import Button from '@/components/Button';
+import ProgressBar from '@/components/ProgressBar';
 import { strings, t } from '@/lib/i18n'; // Import strings and t
 
 /**
@@ -66,6 +67,9 @@ export default function QuizPage() {
       <div className="w-full max-w-2xl space-y-8">
         <header className="text-center mb-8">
           <h1 className="text-3xl font-bold text-indigo-600">{strings.quiz.pageTitle}</h1>
+          <div className="mt-4 mb-4">
+            <ProgressBar current={currentQuestionIndex + 1} total={totalQuestions} />
+          </div>
           <p className="text-md text-gray-600 mt-2">
             {t(strings.quiz.questionLabel, { current: currentQuestionIndex + 1, total: totalQuestions })}
           </p>

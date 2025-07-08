@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
@@ -12,7 +11,6 @@ import { strings, t } from '../../lib/i18n'; // Import strings and t
  * Displays the results of the quiz, including the score and a review of answers.
  */
 export default function ResultsPage() {
-  const router = useRouter();
   const [results, setResults] = useState<QuizResult[] | null>(null);
   const [score, setScore] = useState<number | null>(null);
   const [totalQuestions, setTotalQuestions] = useState<number | null>(null);
@@ -58,7 +56,7 @@ export default function ResultsPage() {
             {strings.results.noResultsMessage}
           </p>
           <Link href="/quiz" passHref>
-            <Button className="bg-blue-500 hover:bg-blue-700">{strings.results.takeQuizButton}</Button>
+            <Button variant="primary" size="lg">{strings.results.takeQuizButton}</Button>
           </Link>
         </Card>
       </main>
@@ -100,10 +98,10 @@ export default function ResultsPage() {
 
         <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
           <Link href="/quiz" passHref>
-            <Button className="w-full sm:w-auto bg-blue-500 hover:bg-blue-700">{strings.results.tryAgainButton}</Button>
+            <Button variant="primary" size="lg" className="w-full sm:w-auto">{strings.results.tryAgainButton}</Button>
           </Link>
           <Link href="/" passHref>
-            <Button className="w-full sm:w-auto bg-gray-600 hover:bg-gray-700">{strings.results.goHomeButton}</Button>
+            <Button variant="secondary" size="lg" className="w-full sm:w-auto">{strings.results.goHomeButton}</Button>
           </Link>
         </div>
       </div>
