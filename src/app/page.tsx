@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import Button from '../components/Button'; // Using relative path
-import Card from '../components/Card'; // Import the new Card component
-import { strings } from '../../lib/i18n'; // Import strings
+import Button from '@/components/Button'; // Using relative path
+import Card from '@/components/Card'; // Import the new Card component
+import { strings } from '@/lib/i18n'; // Import strings
 
 export default function HomePage() {
   return (

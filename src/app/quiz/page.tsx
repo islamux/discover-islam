@@ -2,10 +2,10 @@
 
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useQuiz } from '../../hooks/useQuiz';
-import QuizQuestionDisplay from '../../components/QuizQuestionDisplay';
-import Button from '../../components/Button';
-import { strings, t } from '../../lib/i18n'; // Import strings and t
+import { useQuiz } from '@/hooks/useQuiz';
+import QuizQuestionDisplay from '@/components/QuizQuestionDisplay';
+import Button from '@/components/Button';
+import { strings, t } from '@/lib/i18n'; // Import strings and t
 
 /**
  * The main page for taking the quiz.

@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import type { QuizQuestion, QuizOption } from '../lib/types';
-import Card from './Card'; // Import the Card component
-import { strings } from '../lib/i18n'; // Import strings
+import type { QuizQuestion, QuizOption } from '@/lib/types';
+import Card from '@/components/Card'; // Import the Card component
+import { strings } from '@/lib/i18n'; // Import strings
 
 interface QuizQuestionDisplayProps {
   /**
@@ -39,7 +39,7 @@ const QuizQuestionDisplay: React.FC<QuizQuestionDisplayProps> = ({
   const { questionText, options, correctOptionId, explanation } = question;
 
   return (
-    <Card className="p-6 shadow-lg w-full max-w-2xl"> {/* Use Card and override/set specific styles */}
+    <Card className="p-6 shadow-lg w-full max-w-2xl bg-white">
       <h2 className="text-2xl font-semibold mb-6 text-gray-800">{questionText}</h2>
       <div className="space-y-3 mb-6">
         {options.map((option: QuizOption) => {
@@ -53,10 +53,10 @@ const QuizQuestionDisplay: React.FC<QuizQuestionDisplayProps> = ({
               buttonStyle = isCorrect ? 'bg-green-500 text-white' : 'bg-red-500 text-white';
             } else if (isCorrect) {
               // Show correct answer if user picked wrong
-              buttonStyle = 'bg-green-500 text-white opacity-75';
+              buttonStyle = 'bg-green-500 text-white';
             } else {
               // Other unselected options
-              buttonStyle = 'bg-gray-100 text-gray-700 opacity-50 cursor-not-allowed';
+              buttonStyle = 'bg-gray-100 text-gray-700 cursor-not-allowed';
             }
           }
 
